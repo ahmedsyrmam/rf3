@@ -33,7 +33,7 @@ def save_emails(data):
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
     users = load_users()
-    if str(message.from_user.id) in users or message.from_user.id == 5108562302: #ايديك
+    if str(message.from_user.id) in users or message.from_user.id == 7088389467: #ايديك
         markup = InlineKeyboardMarkup()
         add_email_button = InlineKeyboardButton("اضف ايميل", callback_data="add_email")
         send_email_button = InlineKeyboardButton("إرسال رسالة", callback_data="send_email")
@@ -183,7 +183,7 @@ def handle_delete_email(call):
 
 @bot.message_handler(commands=['id'])
 def handle_id(message):
-    if message.from_user.id == 5108562302: #ايديك
+    if message.from_user.id == 7088389467: #ايديك
         bot.send_message(message.chat.id, "حسناً الان ارسل الايدي لتفعيله")
         bot.register_next_step_handler(message, get_user_id)
 
@@ -195,7 +195,7 @@ def get_user_id(message):
         save_users(user_ids)
         bot.send_message(message.chat.id, "تم اضافة الايدي بنجاح")
     else:bot.send_message(message.chat.id, "الايدي مضاف من قبل")
-
+print("Run")
 bot.polling()
 
 # 36 186
